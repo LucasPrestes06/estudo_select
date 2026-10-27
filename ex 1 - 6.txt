@@ -1,0 +1,42 @@
+1- 
+SELECT ra, nome
+FROM aluno 
+WHERE cod_turma = 2
+
+
+
+2- 
+SELECT * FROM professor
+WHERE lower(titulacao) = 'mestre'
+ORDER BY nome;
+
+3-
+SELECT d.nome, d.sigla
+FROM disciplina d
+JOIN professor p
+	ON d.cod_prof = p.matricula
+WHERE lower(p.nome) = 'marli'
+
+4-
+
+SELECT d.nome, da.nota
+FROM disciplinas_aluno da
+JOIN disciplina d
+	ON da.cod_discip = d.cod
+JOIN aluno a
+	ON da.cod_aluno = a.ra
+WHERE a.nome = 'Maria Clara'
+
+5-
+SELECT d.nome FROM curso_disciplina cd
+JOIN disciplina d 
+	ON d.cod = cd.cod_discip
+JOIN curso c
+	ON c.cod = cd.cod_curso
+WHERE UPPER(c.sigla) = 'ADS'
+
+6-
+SELECT nome, endereco, cidade, telefone
+FROM aluno
+WHERE cod_turma = 4
+ORDER BY nome;	
